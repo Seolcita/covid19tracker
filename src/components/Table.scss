@@ -1,0 +1,37 @@
+/** @format */
+
+@import 'variables.scss';
+
+.table {
+  margin-top: 1rem;
+  padding: 0 1rem;
+  overflow-y: scroll;
+  height: 40rem;
+  color: black;
+  // width: 79vw;
+
+  tr {
+    // width: 100%;
+
+    display: flex;
+    justify-content: space-between;
+  }
+
+  td {
+    padding: 1rem 1rem;
+  }
+
+  tr:nth-of-type(odd) {
+    background-color: gray;
+  }
+
+  h2 {
+    margin-bottom: 2rem;
+  }
+}
+
+@media (max-width: 990px) {
+  .table {
+    width: 79vw;
+  }
+}

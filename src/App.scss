@@ -1,0 +1,49 @@
+/** @format */
+
+@import 'variables.scss';
+
+.app {
+  width: 80vw;
+  margin: 2rem auto;
+
+  display: flex;
+
+  &__left {
+    flex: 0.8;
+    background-color: brown;
+  }
+
+  &__right {
+    flex: 0.2;
+    background-color: pink;
+  }
+
+  &__header {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__stats {
+    margin-top: 5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  &__data {
+    display: flex;
+    flex-direction: column;
+
+    &--table {
+      margin-top: 2rem;
+    }
+    &--graph {
+    }
+  }
+}
+
+@media (max-width: 990px) {
+  .app {
+    flex-direction: column;
+  }
+}

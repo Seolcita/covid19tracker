@@ -1,0 +1,13 @@
+/** @format */
+
+@import 'variables.scss';
+
+.infoBox {
+  // display: flex;
+
+  &__card {
+    border: 1px solid $color-blue-dark;
+    padding: 2rem;
+    // margin: 2rem;
+  }
+}
