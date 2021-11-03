@@ -7,9 +7,11 @@ import InfoBox from './components/InfoBox';
 import Map from './components/Map';
 import Table from './components/Table';
 import LineGraph from './components/LineGraph';
-import { sortData } from './util';
+import { sortData, prettyPrintStat } from './util';
+import numeral from 'numeral';
 
 //CSS
+import 'leaflet/dist/leaflet.css';
 import './App.scss';
 
 const App = () => {
@@ -17,6 +19,10 @@ const App = () => {
   const [country, setCountry] = useState('worldwide');
   const [countryInfo, setCountryInfo] = useState({});
   const [tableData, setTableData] = useState([]);
+  const [mapCountries, setMapCountries] = useState([]);
+  const [casesType, setCasesType] = useState('cases');
+  const [mapCenter, setMapCenter] = useState({ lat: 20, lng: 5 });
+  const [mapZoom, setMapZoom] = useState(3);
 
   // For 'worldwide' data
   // because dropdown default value is 'worldwide'
@@ -40,6 +46,7 @@ const App = () => {
           const sortedData = sortData(data);
           setCountries(countries); // For dropdown list
           setTableData(sortedData); // For table data
+          setMapCountries(data); // For map - all data from API
         });
     };
 
@@ -60,15 +67,17 @@ const App = () => {
       .then((data) => {
         setCountry(countryCode);
         setCountryInfo(data);
+        setMapCenter([data.countryInfo.lat, data.countryInfo.long]);
+        setMapZoom(4);
       });
   };
 
-  console.log('country Info >>>>>>', countryInfo);
+  // console.log('country Info >>>>>>', countryInfo);
   return (
     <div className="app">
       <div className="app__left">
         <div className="app__header">
-          <h1>COVID-19 TRACKER</h1>
+          <h1 className="app__title">COVID-19 TRACKER</h1>
 
           <select
             className="app__form"
@@ -84,24 +93,29 @@ const App = () => {
 
         <div className="app__stats">
           <InfoBox
-            title="Coronavirus Cases"
-            cases={countryInfo.todayCases}
-            total={countryInfo.cases}
+            title="Cases"
+            cases={prettyPrintStat(countryInfo.todayCases)}
+            total={numeral(countryInfo.cases).format('0.0a')}
           />
           <InfoBox
             title="Recovered"
-            cases={countryInfo.todayRecovered}
-            total={countryInfo.recovered}
+            cases={prettyPrintStat(countryInfo.todayRecovered)}
+            total={numeral(countryInfo.recovered).format('0.0a')}
           />
           <InfoBox
             title="Deaths"
-            cases={countryInfo.todayDeaths}
-            total={countryInfo.deaths}
+            cases={prettyPrintStat(countryInfo.todayDeaths)}
+            total={numeral(countryInfo.deaths).format('0.0a')}
           />
         </div>
 
         <div className="app__map">
-          <Map />
+          <Map
+            countries={mapCountries}
+            casesType={casesType}
+            center={mapCenter}
+            zoom={mapZoom}
+          />
         </div>
       </div>
       <div className="app__right">

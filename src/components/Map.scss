@@ -1,3 +1,46 @@
 /** @format */
 
 @import 'variables.scss';
+
+.map {
+  height: 50rem;
+  background-color: white;
+  padding: 1rem;
+  border-radius: 20px;
+  margin-top: 16px;
+  // box-shadow: 0 0 8px -4px rgba(0, 0, 0, 0.5);
+  box-shadow: 3px 5px 10px rgb(69, 69, 69);
+  .leaflet-container {
+    height: 100%;
+    border-radius: 12px;
+  }
+}
+
+.info {
+  width: 15rem;
+
+  &__name {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #555;
+  }
+
+  &__flag {
+    height: 8rem;
+    width: 100%;
+    background-size: cover;
+    border-radius: 8px;
+
+    img {
+      width: 10rem;
+      border-radius: 5px;
+    }
+  }
+
+  &__confirmed,
+  &__recovered,
+  &__deaths {
+    font-size: 1.6rem;
+    margin-top: 5px;
+  }
+}

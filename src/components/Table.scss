@@ -7,26 +7,38 @@
   padding: 0 1rem;
   overflow-y: scroll;
   height: 40rem;
-  color: black;
-  // width: 79vw;
+  color: $color-blue-dark;
+  font-weight: 600;
 
   tr {
-    // width: 100%;
-
     display: flex;
     justify-content: space-between;
+
+    &:hover {
+      background-color: $color-blue-dark;
+      color: $color-white;
+    }
   }
 
   td {
     padding: 1rem 1rem;
+    font-size: 1.3rem;
+    font-weight: 500;
   }
 
   tr:nth-of-type(odd) {
-    background-color: gray;
+    background-color: rgb(237, 237, 237);
+
+    &:hover {
+      background-color: $color-blue-dark;
+      color: $color-white;
+    }
   }
 
   h2 {
     margin-bottom: 2rem;
+    font-size: 1.5rem;
+    font-weight: 600;
   }
 }
 

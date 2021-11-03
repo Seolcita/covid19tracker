@@ -4,23 +4,42 @@
 
 .app {
   width: 80vw;
-  margin: 2rem auto;
+  margin: 5rem auto;
 
   display: flex;
 
   &__left {
     flex: 0.8;
-    background-color: brown;
+    // background-color: brown;
+    padding: 0 3rem;
   }
 
   &__right {
     flex: 0.2;
-    background-color: pink;
+    background-color: $color-white;
+    // margin-right: 2rem;
+    box-shadow: 5px 10px 20px rgb(69, 69, 69);
+    border-radius: 5px;
   }
 
   &__header {
     display: flex;
     justify-content: space-between;
+  }
+
+  &__title {
+    font-size: 3rem;
+    color: $color-blue-dark;
+  }
+
+  select {
+    border: none;
+    border-radius: 5px;
+    padding: 1rem;
+
+    &:focus {
+      outline: none;
+    }
   }
 
   &__stats {
@@ -38,6 +57,7 @@
       margin-top: 2rem;
     }
     &--graph {
+      padding: 1.5rem;
     }
   }
 }

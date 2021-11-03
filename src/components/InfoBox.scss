@@ -3,11 +3,35 @@
 @import 'variables.scss';
 
 .infoBox {
-  // display: flex;
+  flex: 1;
+  margin-bottom: 2rem;
 
+  &:not(:last-child) {
+    margin-right: 2rem;
+  }
   &__card {
-    border: 1px solid $color-blue-dark;
-    padding: 2rem;
-    // margin: 2rem;
+    border: none;
+    padding: 2rem 3rem;
+    border-radius: 5px;
+    background-color: $color-blue-dark;
+    box-shadow: 3px 5px 10px rgb(69, 69, 69);
+    color: white;
+
+    &--title {
+      font-size: 2rem;
+      font-weight: 500;
+    }
+
+    &--case {
+      font-size: 2.5rem;
+      font-weight: 700;
+      padding-top: 2rem;
+      color: $color-yellow-dark;
+    }
+
+    &--total {
+      font-weight: 400;
+      padding-top: 1rem;
+    }
   }
 }
