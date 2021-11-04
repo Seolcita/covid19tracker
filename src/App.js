@@ -94,18 +94,24 @@ const App = () => {
         <div className="app__stats">
           <InfoBox
             title="Cases"
+            onClick={(e) => setCasesType('cases')}
             cases={prettyPrintStat(countryInfo.todayCases)}
             total={numeral(countryInfo.cases).format('0.0a')}
+            active={casesType === 'cases'}
           />
           <InfoBox
             title="Recovered"
+            onClick={(e) => setCasesType('recovered')}
             cases={prettyPrintStat(countryInfo.todayRecovered)}
             total={numeral(countryInfo.recovered).format('0.0a')}
+            active={casesType === 'recovered'}
           />
           <InfoBox
             title="Deaths"
+            onClick={(e) => setCasesType('deaths')}
             cases={prettyPrintStat(countryInfo.todayDeaths)}
             total={numeral(countryInfo.deaths).format('0.0a')}
+            active={casesType === 'deaths'}
           />
         </div>
 
@@ -124,9 +130,7 @@ const App = () => {
             <Table countries={tableData} />
           </div>
           <div className="app__data--graph">
-            <LineGraph casesType="cases" title="Worldwide Cases" />
-            {/* <LineGraph casesType='recovered' title='' /> */}
-            <LineGraph casesType="deaths" title="Worldwide Deaths" />
+            <LineGraph casesType={casesType} title="Worldwide" />
           </div>
         </div>
       </div>

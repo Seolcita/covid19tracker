@@ -37,13 +37,13 @@
 
   h2 {
     margin-bottom: 2rem;
-    font-size: 1.5rem;
+    font-size: 2rem;
     font-weight: 600;
   }
 }
 
-@media (max-width: 990px) {
+@media (max-width: 1180px) {
   .table {
-    width: 79vw;
+    width: 100%;
   }
 }

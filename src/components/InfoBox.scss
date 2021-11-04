@@ -5,10 +5,12 @@
 .infoBox {
   flex: 1;
   margin-bottom: 2rem;
+  cursor: pointer;
 
   &:not(:last-child) {
     margin-right: 2rem;
   }
+
   &__card {
     border: none;
     padding: 2rem 3rem;
@@ -20,6 +22,8 @@
     &--title {
       font-size: 2rem;
       font-weight: 500;
+      padding-bottom: 0.5rem;
+      display: inline-block;
     }
 
     &--case {
@@ -33,5 +37,13 @@
       font-weight: 400;
       padding-top: 1rem;
     }
+
+    &:hover {
+      transform: translateY(-1.3rem);
+    }
+  }
+
+  &--selected h2.infoBox__card--title {
+    border-bottom: 2px solid greenyellow;
   }
 }

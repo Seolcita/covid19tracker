@@ -91,7 +91,10 @@ function LineGraph({ casesType, title }) {
 
   return (
     <div className="lineGraph">
-      <h2>{title}</h2>
+      <h2>
+        {title} &nbsp;
+        {casesType}
+      </h2>
       {data?.length > 0 && (
         <Line
           data={{

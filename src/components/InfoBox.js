@@ -7,10 +7,13 @@ import './InfoBox.scss';
 import './InfoBox.scss';
 
 function InfoBox(props) {
-  const { title, cases, total } = props;
+  const { title, cases, total, active } = props;
 
   return (
-    <div className="infoBox">
+    <div
+      className={`infoBox ${active && 'infoBox--selected'}`}
+      onClick={props.onClick}
+    >
       <div className="infoBox__card">
         <h2 className="infoBox__card--title">{title}</h2>
         <h2 className="infoBox__card--case">{cases} </h2>

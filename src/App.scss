@@ -4,22 +4,21 @@
 
 .app {
   width: 80vw;
-  margin: 5rem auto;
+  margin: 10rem auto;
 
   display: flex;
 
   &__left {
     flex: 0.8;
-    // background-color: brown;
     padding: 0 3rem;
   }
 
   &__right {
     flex: 0.2;
     background-color: $color-white;
-    // margin-right: 2rem;
     box-shadow: 5px 10px 20px rgb(69, 69, 69);
     border-radius: 5px;
+    margin: 0 3rem;
   }
 
   &__header {
@@ -28,8 +27,9 @@
   }
 
   &__title {
-    font-size: 3rem;
+    font-size: 4.5rem;
     color: $color-blue-dark;
+    text-shadow: 3px 3px 2px rgb(249, 249, 249), 5px 5px 3px rgb(164, 164, 164);
   }
 
   select {
@@ -62,8 +62,13 @@
   }
 }
 
-@media (max-width: 990px) {
+@media (max-width: 1180px) {
   .app {
     flex-direction: column;
+
+    &__right {
+      margin-top: 5rem;
+      padding-bottom: 5rem;
+    }
   }
 }
