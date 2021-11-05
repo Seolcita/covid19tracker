@@ -1,6 +1,6 @@
 /** @format */
 
-import React from 'react';
+import React, { useState } from 'react';
 import numeral from 'numeral'; // format numbers certain way
 import { Circle, Popup } from 'react-leaflet';
 
@@ -27,12 +27,17 @@ const casesTypeColors = {
     hex: '#fb4443',
     multiplier: 800,
   },
+
+  vaccine: {
+    hex: '#fb4443',
+    multiplier: 800,
+  },
 };
 
 export const prettyPrintStat = (stat) =>
   stat ? `+${numeral(stat).format('0.0a')}` : '+0';
 
-// Draw circles on the map with interactive tooltip
+// Draw circles on the map with interactive tooltip - For Covid19 Map
 export const showDataOnMap = (data, casesType = 'cases') =>
   data.map((country) => (
     <Circle
@@ -59,6 +64,27 @@ export const showDataOnMap = (data, casesType = 'cases') =>
           </div>
           <div className="info__deaths">
             Deaths: {numeral(country.deaths).format('0,0')}
+          </div>
+        </div>
+      </Popup>
+    </Circle>
+  ));
+
+// Draw circles on the map with interactive tooltip - For vaccine Map
+export const showVaccineDataOnMap = (data, casesType) =>
+  data.map((country) => (
+    <Circle
+      center={[20, 5]}
+      color="yellow"
+      fillColor="green"
+      fillOpacity={0.4}
+      radius={Math.sqrt(country.num)}
+    >
+      <Popup>
+        <div className="info">
+          <div className="info__name">{country.name}</div>
+          <div className="info__confirmed">
+            Vaccine: {numeral(country.num).format('0,0')}
           </div>
         </div>
       </Popup>
